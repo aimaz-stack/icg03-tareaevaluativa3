@@ -6,7 +6,7 @@ generator client {
 // - Desarrollo (UD3-4): SQLite (archivo local ./dev.db)
 // - Producción (UD5): PostgreSQL en Neon
 datasource db {
-  provider = "postgresql"  
+  provider = "sqlite"
 }
 
 // Usuario del sistema (alumno con su videoteca personal)
@@ -29,6 +29,7 @@ model Movie {
   posterUrl String?                        // URL del póster (opcional)
   
   isFavorite Boolean @default(false)       // Favoritos (UD3)
+  /// Valoración de 0 a 5
   rating     Int      @default(0)           // Rating 0-5 (UD3 - ejercicio)
   
   createdAt DateTime @default(now())       // Cuándo se añadió
